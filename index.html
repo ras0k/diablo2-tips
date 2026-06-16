@@ -46,19 +46,13 @@
             font-size: 1.1rem;
         }
 
-        /* Widescreen Grid Layout - Normal and Nightmare Side-by-Side */
-        .widescreen-grid {
-            display: grid;
-            grid-template-columns: 1fr;
+        /* Vertical Stack Layout */
+        .vertical-stack {
+            display: flex;
+            flex-direction: column;
             gap: 25px;
-            max-width: 1800px;
+            max-width: 1400px;
             margin: 0 auto;
-        }
-
-        @media (min-width: 1200px) {
-            .widescreen-grid {
-                grid-template-columns: 1fr 1fr;
-            }
         }
 
         .section-card {
@@ -67,7 +61,6 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            height: fit-content;
         }
 
         .section-card h2 {
@@ -148,10 +141,10 @@
 
 <header>
     <h1>Sorceress & Assassin Early Game Farming Tracker</h1>
-    <p>Normal & Nightmare Countess Drops Only | Widescreen Side-by-Side View</p>
+    <p>Normal & Nightmare Countess Drops Only | Vertically Stacked View</p>
 </header>
 
-<div class="widescreen-grid">
+<div class="vertical-stack">
     
     <!-- 1. NORMAL COUNTESS -->
     <div class="section-card">
