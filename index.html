@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorc & Assassin Early Game Runeword Tracker</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-gold: #d4af37;
+            --accent-orange: #ff8c00;
+            --accent-utility: #4ade80; /* Green for MF, GF, and Discounts */
+            --border-color: #333333;
+            --row-alt: #252525;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--accent-gold);
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Widescreen Grid Layout - Normal and Nightmare Side-by-Side */
+        .widescreen-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1200px) {
+            .widescreen-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .section-card {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            height: fit-content;
+        }
+
+        .section-card h2 {
+            color: var(--accent-gold);
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: var(--accent-gold);
+            font-weight: 600;
+            padding: 12px 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--row-alt);
+        }
+
+        .rw-name {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .runes {
+            color: var(--accent-orange);
+            font-family: "Courier New", Courier, monospace;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .lvl {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .utility-list {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--text-color);
+        }
+
+        .utility-list li {
+            margin-bottom: 4px;
+        }
+
+        .econ-tag {
+            color: var(--accent-utility);
+            font-weight: bold;
+        }
+
+        .d2r-note {
+            font-size: 0.8rem;
+            color: #58a6ff;
+            font-style: italic;
+            display: block;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sorceress & Assassin Early Game Farming Tracker</h1>
+    <p>Normal & Nightmare Countess Drops Only | Widescreen Side-by-Side View</p>
+</header>
+
+<div class="widescreen-grid">
+    
+    <!-- 1. NORMAL COUNTESS -->
+    <div class="section-card">
+        <h2>1. Normal Countess (Drops up to Ral / Ort)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Runeword</th>
+                    <th style="width: 25%;">Runes</th>
+                    <th style="width: 10%; text-align: center;">Lvl</th>
+                    <th style="width: 15%;">Item Type</th>
+                    <th style="width: 30%;">Key Features & Economy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="rw-name">Stealth</td>
+                    <td class="runes">Tal + Eth</td>
+                    <td class="lvl">17</td>
+                    <td>Body Armor (2)</td>
+                    <td>
+                        <ul class="utility-list">
+                            <li><b>+25% Faster Cast Rate</b></li>
+                            <li>+25% Faster Hit Recovery</li>
+                            <li>Regenerate Mana 15%</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rw-name">Leaf</td>
+                    <td class="runes">Tir + Ral</td>
+                    <td class="lvl">19</td>
+                    <td>Staves (2)</td>
+                    <td>
+                        <ul class="utility-list">
+                            <li><b>+3 to Fire Skills</b></li>
+                            <li>+3 to Warmth / Inferno / Fire Bolt</li>
+                            <li>+2 Mana After Each Kill</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 2. NIGHTMARE COUNTESS -->
+    <div class="section-card">
+        <h2>2. Nightmare Countess (Drops up to Io / Ko)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Runeword</th>
+                    <th style="width: 25%;">Runes</th>
+                    <th style="width: 10%; text-align: center;">Lvl</th>
+                    <th style="width: 15%;">Item Type</th>
+                    <th style="width: 30%;">Key Features & Economy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="rw-name">Edge</td>
+                    <td class="runes">Tir + Tal + Amn</td>
+                    <td class="lvl">25</td>
+                    <td>Missile Weapons (3)</td>
+                    <td>
+                        <ul class="utility-list">
+                            <li class="econ-tag">Reduces All Vendor Prices 15%</li>
+                            <li>Level 15 Thorns Aura when equipped</li>
+                            <span class="d2r-note">Kept in stash for gambling / trading</span>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rw-name">Insight</td>
+                    <td class="runes">Ral + Tir + Tal + Sol</td>
+                    <td class="lvl">27</td>
+                    <td>Polearms, Staves (4)</td>
+                    <td>
+                        <ul class="utility-list">
+                            <li><b>Lv 12-17 Meditation Aura</b> (Infinite Mana)</li>
+                            <li class="econ-tag">23% Better Chance of Magic Items</li>
+                            <span class="d2r-note">Essential Act 2 Mercenary weapon</span>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rw-name">Honor</td>
+                    <td class="runes">Amn + El + Ith + Tir + Sol</td>
+                    <td class="lvl">27</td>
+                    <td>Melee Weapons (5)</td>
+                    <td>
+                        <ul class="utility-list">
+                            <li><b>+1 to All Skills</b></li>
+                            <li>7% Life Stolen per Hit</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rw-name">Lore</td>
+                    <td class="runes">Ort + Sol</td>
+                    <td class="lvl">27</td>
+                    <td>Helms (2)</td>
+                    <td>
+                        <ul class="utility-list">
+                            <li><b>+1 to All Skills</b></li>
+                            <li>+2 Mana After Each Kill</li>
+                            <li>Lightning Resist +30%</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rw-name">Rhyme</td>
+                    <td class="runes">Shael + Eth</td>
+                    <td class="lvl">29</td>
+                    <td>Shields (2)</td>
+                    <td>
+                        <ul class="utility-list">
+                            <li><b>Cannot be Frozen</b></li>
+                            <li class="econ-tag">25% Better Chance of Magic Items</li>
+                            <li class="econ-tag">50% Extra Gold from Monsters</li>
+                            <li>All Resistances +25</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rw-name">Memory</td>
+                    <td class="runes">Lum + Io + Sol + Eth</td>
+                    <td class="lvl">37</td>
+                    <td>Staves (4)</td>
+                    <td>
+                        <ul class="utility-list">
+                            <li><b>+3 to Sorceress Skill Levels</b></li>
+                            <li>+33% Faster Cast Rate</li>
+                            <li>Increase Maximum Mana 20%</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rw-name">Smoke</td>
+                    <td class="runes">Nef + Lum</td>
+                    <td class="lvl">37</td>
+                    <td>Body Armor (2)</td>
+                    <td>
+                        <ul class="utility-list">
+                            <li><b>All Resistances +50</b></li>
+                            <li>+20% Faster Hit Recovery</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rw-name">Splendor</td>
+                    <td class="runes">Eth + Lum</td>
+                    <td class="lvl">37</td>
+                    <td>Shields (2)</td>
+                    <td>
+                        <ul class="utility-list">
+                            <li><b>+1 to All Skills</b> & <b>+10% FCR</b></li>
+                            <li class="econ-tag">20% Better Chance of Magic Items</li>
+                            <li class="econ-tag">50% Extra Gold from Monsters</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
