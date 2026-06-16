@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorc & Assassin Ultimate Runeword Tracker</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-gold: #d4af37;
+            --accent-orange: #ff8c00;
+            --accent-utility: #4ade80; /* Green for MF, GF, and Discounts */
+            --border-color: #333333;
+            --row-alt: #252525;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--accent-gold);
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .widescreen-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1200px) {
+            .widescreen-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-card {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .section-card h2 {
+            color: var(--accent-gold);
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: var(--accent-gold);
+            font-weight: 600;
+            padding: 12px 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--row-alt);
+        }
+
+        .rw-name {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .runes {
+            color: var(--accent-orange);
+            font-family: "Courier New", Courier, monospace;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .lvl {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .utility-list {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--text-color);
+        }
+
+        .utility-list li {
+            margin-bottom: 4px;
+        }
+
+        .econ-tag {
+            color: var(--accent-utility);
+            font-weight: bold;
+        }
+
+        .high-rune {
+            color: #ff4500;
+            text-decoration: underline;
+        }
+
+        .d2r-note {
+            font-size: 0.8rem;
+            color: #58a6ff;
+            font-style: italic;
+            display: block;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sorceress & Assassin Combat & Economy Tracker</h1>
+    <p>Filtered for Non-Ladder/D2R Changes | Highlighted Magic Find, Gold Find & Merchant Rebates</p>
+</header>
+
+<div class="widescreen-grid">
+    
+    <!-- LEFT COLUMN: EARLY TO MID GAME (NORMAL & NIGHTMARE) -->
+    <div class="column">
+        
+        <!-- NORMAL COUNTESS -->
+        <div class="section-card">
+            <h2>1. Normal Countess (Drops up to Ral / Ort)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Runeword</th>
+                        <th style="width: 25%;">Runes</th>
+                        <th style="width: 10%; text-align: center;">Lvl</th>
+                        <th style="width: 15%;">Item Type</th>
+                        <th style="width: 30%;">Key Features & Economy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rw-name">Stealth</td>
+                        <td class="runes">Tal + Eth</td>
+                        <td class="lvl">17</td>
+                        <td>Body Armor (2)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+25% Faster Cast Rate</b></li>
+                                <li>+25% Faster Hit Recovery</li>
+                                <li>Regenerate Mana 15%</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Leaf</td>
+                        <td class="runes">Tir + Ral</td>
+                        <td class="lvl">19</td>
+                        <td>Staves (2)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+3 to Fire Skills</b></li>
+                                <li>+3 to Warmth / Inferno / Fire Bolt</li>
+                                <li>+2 Mana After Each Kill</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- NIGHTMARE COUNTESS -->
+        <div class="section-card">
+            <h2>2. Nightmare Countess (Drops up to Io / Ko)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Runeword</th>
+                        <th style="width: 25%;">Runes</th>
+                        <th style="width: 10%; text-align: center;">Lvl</th>
+                        <th style="width: 15%;">Item Type</th>
+                        <th style="width: 30%;">Key Features & Economy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rw-name">Edge</td>
+                        <td class="runes">Tir + Tal + Amn</td>
+                        <td class="lvl">25</td>
+                        <td>Missile Weapons (3)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li class="econ-tag">Reduces All Vendor Prices 15%</li>
+                                <li>Level 15 Thorns Aura when equipped</li>
+                                <span class="d2r-note">Kept in stash for gambling / trading</span>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Insight</td>
+                        <td class="runes">Ral + Tir + Tal + Sol</td>
+                        <td class="lvl">27</td>
+                        <td>Polearms, Staves (4)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>Lv 12-17 Meditation Aura</b> (Infinite Mana)</li>
+                                <li class="econ-tag">23% Better Chance of Magic Items</li>
+                                <span class="d2r-note">Essential Act 2 Mercenary weapon</span>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Honor</td>
+                        <td class="runes">Amn + El + Ith + Tir + Sol</td>
+                        <td class="lvl">27</td>
+                        <td>Melee Weapons (5)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+1 to All Skills</b></li>
+                                <li>7% Life Stolen per Hit</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Lore</td>
+                        <td class="runes">Ort + Sol</td>
+                        <td class="lvl">27</td>
+                        <td>Helms (2)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+1 to All Skills</b></li>
+                                <li>+2 Mana After Each Kill</li>
+                                <li>Lightning Resist +30%</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Rhyme</td>
+                        <td class="runes">Shael + Eth</td>
+                        <td class="lvl">29</td>
+                        <td>Shields (2)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>Cannot be Frozen</b></li>
+                                <li class="econ-tag">25% Better Chance of Magic Items</li>
+                                <li class="econ-tag">50% Extra Gold from Monsters</li>
+                                <li>All Resistances +25</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Memory</td>
+                        <td class="runes">Lum + Io + Sol + Eth</td>
+                        <td class="lvl">37</td>
+                        <td>Staves (4)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+3 to Sorceress Skill Levels</b></li>
+                                <li>+33% Faster Cast Rate</li>
+                                <li>Increase Maximum Mana 20%</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Smoke</td>
+                        <td class="runes">Nef + Lum</td>
+                        <td class="lvl">37</td>
+                        <td>Body Armor (2)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>All Resistances +50</b></li>
+                                <li>+20% Faster Hit Recovery</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Splendor</td>
+                        <td class="runes">Eth + Lum</td>
+                        <td class="lvl">37</td>
+                        <td>Shields (2)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+1 to All Skills</b> & <b>+10% FCR</b></li>
+                                <li class="econ-tag">20% Better Chance of Magic Items</li>
+                                <li class="econ-tag">50% Extra Gold from Monsters</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    
+    <!-- RIGHT COLUMN: LATE GAME TO ENDGAME (HELL & WORLD DROPS) -->
+    <div class="column">
+        
+        <!-- HELL COUNTESS -->
+        <div class="section-card">
+            <h2>3. Hell Countess (Drops up to Ist / Lo)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Runeword</th>
+                        <th style="width: 25%;">Runes</th>
+                        <th style="width: 10%; text-align: center;">Lvl</th>
+                        <th style="width: 15%;">Item Type</th>
+                        <th style="width: 30%;">Key Features & Economy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rw-name">Treachery</td>
+                        <td class="runes">Shael + Thul + Lem</td>
+                        <td class="lvl">43</td>
+                        <td>Body Armor (3)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+2 to Assassin Skills</b></li>
+                                <li><b>+45% IAS</b> (Faster Trap deployment)</li>
+                                <li>5% Chance to cast Level 15 Fade</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Wealth</td>
+                        <td class="runes">Lem + Ko + Tir</td>
+                        <td class="lvl">43</td>
+                        <td>Body Armor (3)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li class="econ-tag">100% Better Chance of Magic Items</li>
+                                <li class="econ-tag">300% Extra Gold from Monsters</li>
+                                <li>+10 to Dexterity | +2 Mana Per Kill</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Enlightenment</td>
+                        <td class="runes">Pul + Ral + Sol</td>
+                        <td class="lvl">45</td>
+                        <td>Body Armor (3)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+2 to Sorceress Skills</b></li>
+                                <li>Fire Resist +30%</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Sanctuary</td>
+                        <td class="runes">Ko + Ko + Mal</td>
+                        <td class="lvl">49</td>
+                        <td>Shields (3)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>All Resistances +50-70</b></li>
+                                <li>+20% Faster Hit Recovery & Block Rate</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Delirium</td>
+                        <td class="runes">Lem + Ist + Io</td>
+                        <td class="lvl">51</td>
+                        <td>Helms (3)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+2 to All Skills</b></li>
+                                <li class="econ-tag">25% Magic Find / 50% Gold Find</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Heart of the Oak</td>
+                        <td class="runes">Ko + Vex + Pul + Thul</td>
+                        <td class="lvl">55</td>
+                        <td>Staves, Maces (4)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+3 to All Skills</b> & <b>+40% FCR</b></li>
+                                <li>All Resistances +30-40</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Flickering Flame</td>
+                        <td class="runes">Nef + Pul + Vex</td>
+                        <td class="lvl">55</td>
+                        <td>Helms (3)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+3 to Fire Skills</b></li>
+                                <li><b>-10-15% to Enemy Fire Resistance</b></li>
+                                <li>Level 4-8 Resist Fire Aura</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Silence</td>
+                        <td class="runes">Dol + Eld + Hel + Ist + ...</td>
+                        <td class="lvl">55</td>
+                        <td>Weapons (6)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+2 to All Skills</b> | <b>All Res +75</b></li>
+                                <li class="econ-tag">30% Better Chance of Magic Items</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Call To Arms</td>
+                        <td class="runes">Amn + Ral + Mal + Ist + Ohm</td>
+                        <td class="lvl">57</td>
+                        <td>Weapons (5)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+1 to All Skills</b> | Battle Orders buff</li>
+                                <li class="econ-tag">30% Better Chance of Magic Items</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- BEYOND COUNTESS -->
+        <div class="section-card">
+            <h2>4. Beyond the Countess (Requires Hell World Drops)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Runeword</th>
+                        <th style="width: 25%;">Runes</th>
+                        <th style="width: 10%; text-align: center;">Lvl</th>
+                        <th style="width: 15%;">Item Type</th>
+                        <th style="width: 30%;">Key Features & Economy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rw-name">Chains of Honor</td>
+                        <td class="runes">Dol + Um + <span class="high-rune">Ber</span> + Ist</td>
+                        <td class="lvl">63</td>
+                        <td>Body Armor (4)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+2 to All Skills</b> | <b>All Res +65</b></li>
+                                <li class="econ-tag">25% Better Chance of Magic Items</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Enigma</td>
+                        <td class="runes"><span class="high-rune">Jah</span> + Ith + <span class="high-rune">Ber</span></td>
+                        <td class="lvl">65</td>
+                        <td>Body Armor (3)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+2 to All Skills</b> & <b>+1 to Teleport</b></li>
+                                <li class="econ-tag">+1% Magic Find Per Character Level</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Plague</td>
+                        <td class="runes"><span class="high-rune">Cham</span> + Shael + Um</td>
+                        <td class="lvl">67</td>
+                        <td>Swords, Katars (3)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+1-2 to All Skills</b></li>
+                                <li>Cleansing Aura / Lower Resist proc</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Doom</td>
+                        <td class="runes">Hel + Ohm + Um + Lo + <span class="high-rune">Cham</span></td>
+                        <td class="lvl">67</td>
+                        <td>Axes, Polearms (5)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+2 to All Skills</b></li>
+                                <li><b>-40-60% to Enemy Cold Resistance</b></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Hand of Justice</td>
+                        <td class="runes"><span class="high-rune">Sur</span> + <span class="high-rune">Cham</span> + Amn + Lo</td>
+                        <td class="lvl">67</td>
+                        <td>Weapons (4)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>-20% to Enemy Fire Resistance</b></li>
+                                <li>Level 16 Holy Fire Aura</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rw-name">Obsession</td>
+                        <td class="runes"><span class="high-rune">Zod</span> + Ist + Lem + Lum + Io + Nef</td>
+                        <td class="lvl">69</td>
+                        <td>Staves (6)</td>
+                        <td>
+                            <ul class="utility-list">
+                                <li><b>+4 to All Skills</b> & <b>+65% FCR</b></li>
+                                <li class="econ-tag">30% Magic Find / 75% Gold Find</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
